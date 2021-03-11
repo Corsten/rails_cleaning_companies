@@ -22,9 +22,9 @@
       %td= link_to t('.show'), admin_client_path(client)
 .float-right
   = paginate @clients
-.btn.btn-light
+.btn.btn-info
   = link_to t('.create'), new_admin_client_path(@client), :class => "btn btn-info"
-.btn.btn-light  
+.btn.btn-info
   = link_to t('.back'), admin_root_path, :class => "btn btn-info"
 .container.col-md-8.mt-4
   %div
