@@ -292,7 +292,7 @@ ru:
         others: Цены
       order:
         one: Заказ
-        others: Заказы  
+        others: Заказы
 
     attributes:
       client:
@@ -311,7 +311,9 @@ ru:
         phonenumber: Телефон
         phone_and_email: Телефон и почта
       admin:
-        name: Имя администратора
+        name: Имя
+        surname: Фамилия
+        patronymic: Отчество
       article:
         title: Заголовок
         short_description: Краткое описание
@@ -342,6 +344,9 @@ ru:
         service_price: Выберите сервис
         city: Город
         price: Цена
+    errors:
+      messages:
+        only_letters: может содержать только буквы
   views:
     pagination:
       first: "&laquo; Первая"

@@ -10,7 +10,7 @@ class Admin < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :name, length: { maximum: 30 }
   validates :email, uniqueness: true, email: true
-  validates :surname, :patronymic, format: { with: LETTER_REGEX }
+  validates :surname, :patronymic, format: { with: LETTER_REGEX, message: :only_letters }
   enumerize :role, in: %i[admin editor], default: :admin
 
   has_secure_password validations: false
