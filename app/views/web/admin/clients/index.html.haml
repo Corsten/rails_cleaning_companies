@@ -1,14 +1,18 @@
-%table.table
-  %tr.table-info
-    %td= Client.human_attribute_name(:id)
-    %td= Client.human_attribute_name(:name)
-    %td= Client.human_attribute_name(:surname)
-    %td= Client.human_attribute_name(:email)
-    %td= Client.human_attribute_name(:phone_number)
-    %td= Client.human_attribute_name(:state)
-    %td= t('control')
+= search_form_for @search, url: admin_clients_path do |f|
+  .input-group
+    = f.search_field :email_eq, placeholder: t('search_form.search_email'), class: 'form-control'
+    = f.button t('search_form.search_button'), class: 'btn btn-info glyphicon glyphicon-search'
+%table.table.table-bordered
+  %thead
+    %th= Client.human_attribute_name(:id)
+    %th= Client.human_attribute_name(:name)
+    %th= Client.human_attribute_name(:surname)
+    %th= Client.human_attribute_name(:email)
+    %th= Client.human_attribute_name(:phone_number)
+    %th= Client.human_attribute_name(:state)
+    %th= t('control')
   - @clients.each do |client|
-    %tr.bg-success
+    %tr
       %td= client.id
       %td= client.name
       %td= client.surname

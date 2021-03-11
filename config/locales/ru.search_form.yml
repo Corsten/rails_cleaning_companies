@@ -1,4 +1,5 @@
 ru:
   search_form:
+    search_email: Введите почту
     cities_name_cont: Компания расположена в городе
     search_button: Поиск
