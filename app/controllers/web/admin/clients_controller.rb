@@ -1,5 +1,6 @@
 class Web::Admin::ClientsController < Web::Admin::ApplicationController
   def index
+    @search = Client.ransack(params[:q])
     @clients = Client.all.page(params[:page])
     authorize current_admin, policy_class: AdminPolicy
   end
