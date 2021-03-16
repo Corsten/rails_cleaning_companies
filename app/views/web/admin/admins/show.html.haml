@@ -1,13 +1,17 @@
 %table.table
   %thead
     %tr
-      %th= Company.human_attribute_name (:name)
-      %th= Company.human_attribute_name (:email)
-      %th= Company.human_attribute_name (:role)
-      %th= Company.human_attribute_name (:state)
+      %th= Admin.human_attribute_name (:surname)
+      %th= Admin.human_attribute_name (:name)
+      %th= Admin.human_attribute_name (:patronymic)
+      %th= Admin.human_attribute_name (:email)
+      %th= Admin.human_attribute_name (:role)
+      %th= Admin.human_attribute_name (:state)
   %tbody
     %tr
+      %td=@admin.surname
       %td=@admin.name
+      %td=@admin.patronymic
       %td=@admin.email
       %td=@admin.role_text
       %td=@admin.human_state_name
