@@ -1,7 +1,9 @@
 %table.table
   %tr.table-info
     %th= Admin.human_attribute_name (:id)
+    %th= Admin.human_attribute_name (:surname)
     %th= Admin.human_attribute_name (:name)
+    %th= Admin.human_attribute_name (:patronymic)
     %th= Admin.human_attribute_name (:email)
     %th= Admin.human_attribute_name (:role)
     %th= Admin.human_attribute_name (:state)
@@ -9,7 +11,9 @@
   - @admins.each do |admin|
     %tr.bg-success
       %td=admin.id
+      %td=admin.surname
       %td=admin.name
+      %td=admin.patronymic
       %td=admin.email
       %td=admin.role_text
       %td=admin.human_state_name
