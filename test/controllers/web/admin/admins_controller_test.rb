@@ -91,4 +91,18 @@ class Web::Admin::AdminsControllerTest < ActionDispatch::IntegrationTest
     admin = Admin.last
     assert_not_equal admins_attrs[:email], admin.email
   end
+
+  test 'should not post create admin with invalid surname' do
+    admins_attrs = attributes_for :admin, surname: 'surname1'
+    post admin_admins_path, params: { admin: admins_attrs }
+    admin = Admin.last
+    assert_not_equal admins_attrs[:email], admin.email
+  end
+
+  test 'should not post create admin with invalid patronymic' do
+    admins_attrs = attributes_for :admin, patronymic: 'patronymic1'
+    post admin_admins_path, params: { admin: admins_attrs }
+    admin = Admin.last
+    assert_not_equal admins_attrs[:email], admin.email
+  end
 end

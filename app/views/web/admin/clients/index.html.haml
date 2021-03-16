@@ -1,5 +1,9 @@
-%table.table
-  %tr.table-info
+= search_form_for @search, url: admin_clients_path do |f|
+  .input-group
+    = f.search_field :email_eq, placeholder: t('search_form.search_email'), class: 'form-control'
+    = f.button t('search_form.search_button'), class: 'btn btn-info glyphicon glyphicon-search'
+%table.table.table-bordered
+  %thead
     %th= sort_link(@search,:id, default_order: :asc)
     %th= sort_link(@search,:name)
     %th= sort_link(@search,:surname)
@@ -8,7 +12,7 @@
     %th= Client.human_attribute_name(:state)
     %th= t('control')
   - @clients.each do |client|
-    %tr.bg-success
+    %tr
       %td= client.id
       %td= client.name
       %td= client.surname
@@ -18,9 +22,9 @@
       %td= link_to t('.show'), admin_client_path(client)
 .float-right
   = paginate @clients
-.btn.btn-light
+.btn.btn-info
   = link_to t('.create'), new_admin_client_path(@client), :class => "btn btn-info"
-.btn.btn-light
+.btn.btn-info
   = link_to t('.back'), admin_root_path, :class => "btn btn-info"
 .container.col-md-8.mt-4
   %div

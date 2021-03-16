@@ -4,10 +4,13 @@ class Admin < ApplicationRecord
 
   has_many :article, dependent: :nullify
 
-  validates :name, :email, :role, presence: true
+  LETTER_REGEX = /\A[а-яА-ЯёЁa-zA-Z]+\z/.freeze
+
+  validates :name, :surname, :patronymic, :email, :role, presence: true
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :name, length: { maximum: 30 }
   validates :email, uniqueness: true, email: true
+  validates :surname, :patronymic, format: { with: LETTER_REGEX, message: :only_letters }
   enumerize :role, in: %i[admin editor], default: :admin
 
   has_secure_password validations: false

@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :admin do
     name
+    surname
+    patronymic
     email
     password
     role { 'admin' }
