@@ -20,10 +20,10 @@
   = paginate @clients
 .btn.btn-light
   = link_to t('.create'), new_admin_client_path(@client), :class => "btn btn-info"
-.btn.btn-light  
+.btn.btn-light
   = link_to t('.back'), admin_root_path, :class => "btn btn-info"
 .container.col-md-8.mt-4
   %div
     %p.text-center Статистика зарегистрированных клиентов
     = area_chart Client.group_by_day(:created_at).count, max: 8
-  
+
