@@ -55,6 +55,12 @@ class Web::Admin::ClientsController < Web::Admin::ApplicationController
     redirect_to action: :index
   end
 
+  def export
+    send_data(ClientsService.export,
+      filename: ClientsService.filename,
+      type: ClientsService.type)
+  end
+
   private
 
   def client_attrs
