@@ -56,6 +56,6 @@ class Web::Admin::AdminsController < Web::Admin::ApplicationController
   private
 
   def admins_attrs
-    params.require(:admin).permit(:name, :email, :password, :role)
+    params.require(:admin).permit(:name, :surname, :patronymic, :email, :password, :role)
   end
 end

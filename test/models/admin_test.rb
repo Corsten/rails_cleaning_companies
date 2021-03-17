@@ -34,4 +34,14 @@ class AdminTest < ActiveSupport::TestCase
     admin.del
     assert_equal 'deleted', admin.state
   end
+
+  test 'should not create surname' do
+    admin = build :admin, surname: 'surname1'
+    assert admin.invalid?
+  end
+
+  test 'should not create patronymic' do
+    admin = build :admin, patronymic: 'patronymic1'
+    assert admin.invalid?
+  end
 end
