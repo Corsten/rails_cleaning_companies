@@ -57,9 +57,9 @@ class Web::Admin::ClientsController < Web::Admin::ApplicationController
   end
 
   def export
-    send_data(ClientsService.export,
-      filename: ClientsService.filename,
-      type: ClientsService.type)
+    send_data(ClientsReportService.export('Clients'),
+      filename: ClientsReportService.filename('clients'),
+      type: ClientsReportService.type)
   end
 
   private
