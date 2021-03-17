@@ -296,6 +296,7 @@ ru:
 
     attributes:
       client:
+        id: ID
         name: Имя
         surname: Фамилия
         email: Почта
