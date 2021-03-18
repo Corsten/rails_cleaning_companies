@@ -57,9 +57,10 @@ class Web::Admin::ClientsController < Web::Admin::ApplicationController
   end
 
   def export
-    send_data(ClientsReportService.export('Clients'),
-      filename: ClientsReportService.filename('clients'),
-      type: ClientsReportService.type)
+    reporter = ClientsReportService.new
+    send_data(reporter.export_to_xlsx('Clients'),
+              filename: reporter.filename('clients'),
+              type: reporter.type)
   end
 
   private

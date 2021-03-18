@@ -1,20 +1,13 @@
 class BaseReportService
-  class << self
-    def export(list_name)
-      instance = new
-      instance.export_to_xlsx_stream(list_name)
-    end
-
-    def filename(filename)
-      "#{filename}.xlsx"
-    end
-
-    def type
-      'application/vnd.ms-excel'
-    end
+  def filename(filename)
+    "#{filename}.xlsx"
   end
 
-  def export_to_xlsx_stream(list_name)
+  def type
+    'application/vnd.ms-excel'
+  end
+
+  def export_to_xlsx(list_name)
     package = Axlsx::Package.new
     workbook = package.workbook
 
