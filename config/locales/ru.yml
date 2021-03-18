@@ -104,7 +104,7 @@ ru:
           deleted: "Перевести в статус не активный"
           activate: "Перевести в статус активный"
           edit: "Изменить"
-          back: "Назад" 
+          back: "Назад"
         edit:
           back: "Назад"
       orders:
@@ -133,7 +133,7 @@ ru:
         index:
           deleted: "Удалить"
           create: "Создать"
-          back: "Назад"    
+          back: "Назад"
       services:
         index:
           create: Создать
@@ -171,7 +171,7 @@ ru:
       profiles:
         edit:
           cancel: "Отмена"
-        show: 
+        show:
           edit: "Изменить"
           list_orders: "Список заказов"
     client:
@@ -354,5 +354,5 @@ ru:
       last: "Последняя &raquo;"
       next: "Следующая &rsaquo;"
       previous: "&lsaquo; Предыдущая"
-      truncate: "&hellip;"     
+      truncate: "&hellip;"
 
