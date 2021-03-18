@@ -1,13 +1,6 @@
 class BaseReportService
-  def filename(filename)
-    "#{filename}.xlsx"
-  end
 
-  def type
-    'application/vnd.ms-excel'
-  end
-
-  def export_to_xlsx(list_name)
+  def export_to_xlsx(data, list_name)
     package = Axlsx::Package.new
     workbook = package.workbook
 

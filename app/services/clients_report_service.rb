@@ -1,8 +1,4 @@
 class ClientsReportService < BaseReportService
-  def initialize
-    @data = Client.all
-  end
-
   private
 
   def report_table_header
