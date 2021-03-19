@@ -1,6 +1,7 @@
 class Web::Admin::ClientsController < Web::Admin::ApplicationController
   def index
     @search = Client.ransack(params[:q])
+    @search_params = params.permit!.slice(:q).to_h
     @clients = @search.result.page(params[:page])
     authorize current_admin, policy_class: AdminPolicy
   end
@@ -57,16 +58,18 @@ class Web::Admin::ClientsController < Web::Admin::ApplicationController
   end
 
   def export
-    clients = Client.all
-    reporter = ClientsReportService.new
-    send_data(reporter.export_to_xlsx(clients, 'Clients'),
-              filename: 'clients.xlsx',
-              type: 'application/vnd.ms-excel')
+    kind = 'Client'
+    type = params[:type]
+    data = Client.ransack(params[:q]).result
+    reporter = BaseReportService.new
+    send_data(reporter.export(kind, type, data),
+              filename: "#{kind}.#{type}",
+              type: reporter.type(type))
   end
 
   private
 
   def client_attrs
-    params.require(:client).permit(:name, :surname, :email, :phone_number, :password)
+    params.require(:client).permit(:name, :surname, :email, :phone_number, :password, :kind)
   end
 end

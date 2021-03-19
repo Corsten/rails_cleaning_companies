@@ -5,7 +5,7 @@
     = f.button t('search_form.search_button'), class: 'btn btn-info glyphicon glyphicon-search'
 %br
 .text-right
-  = link_to t('export_to_excel'), export_admin_clients_path, :class => "btn btn-info"
+  = link_to t('export_to_excel'), export_admin_clients_path(@search_params.merge(:type => 'xlsx')), :class => "btn btn-info"
 %br
 %table.table.table-bordered
   %thead
