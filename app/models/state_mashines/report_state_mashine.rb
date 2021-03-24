@@ -1,11 +1,11 @@
-module StateMashine::ReportStateMashine
+module StateMashines::ReportStateMashine
   extend ActiveSupport::Concern
   included do
     state_machine :state, initial: :new do
-      event :start_work do
+      event :start do
         transition new: :in_process
       end
-      event :is_ready do
+      event :finish do
         transition in_process: :done
       end
     end
