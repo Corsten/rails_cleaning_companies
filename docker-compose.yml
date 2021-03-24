@@ -4,6 +4,10 @@ services:
   db:
     image: postgres:10.6
     container_name: clean_db
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
   web:
     build: .
     image: rails_cleaning_companies/web
@@ -11,6 +15,7 @@ services:
     command: bash -c "puma"
     depends_on:
       - db
+      - redis
     ports:
       - 8080:8080
     volumes:

@@ -6,4 +6,4 @@ production:
   :concurrency: 20
 :queues:
   - default
-  - [critical, 2]
+  - [report, 5]
