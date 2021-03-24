@@ -1,4 +1,5 @@
 ru:
+  export_report: Заказать отчет
   verification_code: "Проверочный код %{code}"
   client_mailer:
     welcome:
