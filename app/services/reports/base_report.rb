@@ -1,9 +1,10 @@
-class BaseReportService
-  REPORTER_MAP = [ClientReportService].freeze
-
-  def export(kind, type, data)
-    REPORTER_MAP.each { |reporter| @instance = reporter.new if reporter.can_make?(kind) }
-    @instance.make_report(kind, data, type)
+class BaseReport
+  REPORTER_MAP = [::ClientReport].freeze
+  def export(kind, filters)
+    REPORTER_MAP.each do |reporter|
+      @instance = reporter.new if reporter.can_make?(kind)
+    end
+    @instance.make_report(kind, filters)
   end
 
   def make_xsls(kind, data)
@@ -19,10 +20,6 @@ class BaseReportService
     end
 
     package.to_stream.read
-  end
-
-  def type(type)
-    return 'application/vnd.ms-excel' if type == 'xlsx'
   end
 
   private
