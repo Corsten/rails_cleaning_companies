@@ -41,6 +41,9 @@ ru:
     password: Пароль
     phone_number: Телефон
     role: Роль
+    file_name: Файл
+    file_type: Тип отчета
+    created_at: Дата создания
   web:
     welcome:
       index:
@@ -66,6 +69,7 @@ ru:
           list_service: Список Услуг
           list_service_price: Список цен
           list_order: Список заказов
+          list_reports: Список отчетов
       admins:
         index:
           back: "Назад"
@@ -159,6 +163,9 @@ ru:
           deleted: "Перевести в статус не активный"
           activate: "Перевести в статус активный"
           disable: "Перевести в статус временно не доступно"
+      reports:
+        index:
+          back: Назад
     company:
       orders:
         index:
@@ -269,6 +276,12 @@ ru:
             reject: Отменен
             complete: Выполнен
             pending: Создан
+      report:
+        state:
+          states:
+            new: Создан
+            in_process: В работе
+            done: Готово
     models:
       admin:
         one: Администратор

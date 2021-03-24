@@ -1,5 +1,5 @@
-class BaseReport
-  REPORTER_MAP = [::ClientReport].freeze
+class Reports::BaseReport
+  REPORTER_MAP = [Reports::ClientReport].freeze
   def export(kind, filters)
     REPORTER_MAP.each do |reporter|
       @instance = reporter.new if reporter.can_make?(kind)

@@ -1,0 +1,20 @@
+%br
+%table.table.table-bordered
+  %thead
+    %th= sort_link(@search,:id)
+    %th= Report.human_attribute_name (:file_name)
+    %th= Report.human_attribute_name (:file_type)
+    %th= Report.human_attribute_name (:created_at)
+    %th= Report.human_attribute_name (:state)
+  - @reports.each do |report|
+    %tr
+      %td= report.id
+      %td= link_to report.file_name, download_admin_reports_path(:file_path => "#{report.file_path}#{report.file_name}")
+      %td= report.file_type
+      %td= report.created_at
+      %td= report.state
+.float-right
+  = paginate @reports
+
+.btn.btn-info
+  = link_to t('.back'), admin_root_path, :class => "btn btn-info"

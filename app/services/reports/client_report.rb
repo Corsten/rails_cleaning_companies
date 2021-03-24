@@ -1,4 +1,4 @@
-class ClientReport < BaseReport
+class Reports::ClientReport < Reports::BaseReport
   def self.can_make?(kind)
     true if kind == 'Client'
   end
