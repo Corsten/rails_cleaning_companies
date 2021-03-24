@@ -12,7 +12,7 @@
       %td= link_to report.file_name, download_admin_reports_path(:file_path => "#{report.file_path}#{report.file_name}")
       %td= report.file_type
       %td= report.created_at
-      %td= report.state
+      %td= report.state_text
 .float-right
   = paginate @reports
 

@@ -4,3 +4,8 @@ ru:
       role:
         admin: Администратор
         editor: Редактор
+    report:
+      state:
+        new: Создан
+        in_process: Обрабатывается
+        done: Готово
