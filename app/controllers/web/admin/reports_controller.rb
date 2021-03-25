@@ -12,15 +12,14 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   def create
     @report = Report.new(report_attrs)
     @report.admin = current_admin
-    if @report.save
-      redirect_to report: :index
-    else
-      render report: :new
-    end
+    redirect_to report: :index
   end
 
-  def download
-    send_file params[:file_path]
+  def destroy
+    report = Report.find(params[:id])
+    report.file.purge
+    report.delete
+    redirect_to admin_reports_path
   end
 
   private
@@ -30,6 +29,6 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   end
 
   def report_attrs
-    params.require(:report).permit(:state, :kind, :file_type, :file_name)
+    params.permit(:id, :state, :kind, :file_type, :file)
   end
 end

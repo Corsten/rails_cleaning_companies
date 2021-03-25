@@ -166,6 +166,7 @@ ru:
       reports:
         index:
           back: Назад
+          delete: Удалить
     company:
       orders:
         index:

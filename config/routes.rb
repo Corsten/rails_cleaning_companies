@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       end
       resources :clients do
         put 'restore'
-        put 'del'
+        put 'delete'
         collection do
           get 'export'
         end
@@ -49,10 +49,8 @@ Rails.application.routes.draw do
         put 'del'
         put 'disable'
       end
-      resources :reports do
-        collection do
-          get 'download'
-        end
+        resources :reports do
+        put 'delete'
       end
     end
     namespace :company do

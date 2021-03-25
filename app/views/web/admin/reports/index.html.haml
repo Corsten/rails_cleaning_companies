@@ -6,13 +6,16 @@
     %th= Report.human_attribute_name (:file_type)
     %th= Report.human_attribute_name (:created_at)
     %th= Report.human_attribute_name (:state)
+    %th= ''
+
   - @reports.each do |report|
     %tr
       %td= report.id
-      %td= link_to report.file_name, download_admin_reports_path(:file_path => "#{report.file_path}#{report.file_name}")
+      %td= link_to report.file.filename, url_for(report.file) if report.file.attached?
       %td= report.file_type
       %td= report.created_at
       %td= report.state_text
+      %td= link_to t('.delete'), admin_report_path(id: report.id), method: :delete, :class => "btn btn-info"
 .float-right
   = paginate @reports
 
