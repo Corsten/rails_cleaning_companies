@@ -17,8 +17,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
 
   def destroy
     report = Report.find(params[:id])
-    report.file.purge
-    report.delete
+    report.destroy
     redirect_to admin_reports_path
   end
 
