@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'bootstrap', '~> 4.4.1'
 gem 'caxlsx'
 gem 'chartkick'
+gem 'config'
 gem 'coveralls', require: false
 gem 'curb'
 gem 'draper'
@@ -22,9 +22,11 @@ gem 'pundit'
 gem 'rails-observers'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'react-rails'
+gem 'redis'
 gem 'rubocop-rails', require: false
 gem 'russian', '~> 0.6.0'
 gem 'select2-rails'
+gem 'sidekiq'
 gem 'simple_form'
 gem 'state_machines-activerecord'
 gem 'valid_email'

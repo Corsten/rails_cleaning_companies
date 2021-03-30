@@ -1,0 +1,4 @@
+redis:
+  host: <%= ENV['REDIS_HOST'] || 'redis ' %>
+  port: <%= ENV['REDIS_PORT'] || 6379 %>
+  sidekiq_db: <%= ENV['REDIS_DB'] || 'db0' %>

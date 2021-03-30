@@ -1,10 +1,11 @@
-class ClientReportService < BaseReportService
+class Reports::ClientReport < Reports::BaseReport
   def self.can_make?(kind)
     true if kind == 'Client'
   end
 
-  def make_report(kind, data, type)
-    make_xsls(kind, data) if type == 'xlsx'
+  def make_report(kind, filters)
+    clients = Client.ransack(filters).result
+    make_xsls(kind, clients)
   end
 
   def report_table_header
@@ -14,6 +15,6 @@ class ClientReportService < BaseReportService
   end
 
   def report_table_info(client)
-    [client.id, client.name, client.surname, client.email, client.phone_number]
+    [client['id'], client['name'], client['surname'], client['email'], client['phone_number']]
   end
 end

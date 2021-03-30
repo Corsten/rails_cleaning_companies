@@ -3,6 +3,7 @@ class Admin < ApplicationRecord
   paginates_per 5
 
   has_many :article, dependent: :nullify
+  has_many :report, dependent: :nullify
 
   LETTER_REGEX = /\A[а-яА-ЯёЁa-zA-Z]+\z/.freeze
 

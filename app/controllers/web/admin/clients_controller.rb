@@ -58,18 +58,16 @@ class Web::Admin::ClientsController < Web::Admin::ApplicationController
   end
 
   def export
-    kind = 'Client'
-    type = params[:type]
-    data = Client.ransack(params[:q]).result
-    reporter = BaseReportService.new
-    send_data(reporter.export(kind, type, data),
-              filename: "#{kind}.#{type}",
-              type: reporter.type(type))
+    report = Report.new(admin_id: current_admin.id, file_type: params['type'])
+    report.start
+    ReportWorker.perform_async(report.id, params.as_json)
+
+    redirect_to admin_reports_path
   end
 
   private
 
   def client_attrs
-    params.require(:client).permit(:name, :surname, :email, :phone_number, :password, :kind)
+    params.require(:client).permit(:name, :surname, :email, :phone_number, :password)
   end
 end
