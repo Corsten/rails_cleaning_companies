@@ -29,6 +29,9 @@ Rails.application.routes.draw do
         resources :clients do
           put 'restore'
           put 'del'
+          collection do
+            get 'export'
+          end
         end
         resources :orders, except: :new do
           put 'activate'
